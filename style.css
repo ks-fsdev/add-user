@@ -1,0 +1,16 @@
+.users-container {
+  margin: 10px auto;
+  width: 30vw;
+}
+
+.user {
+  border-radius: 8px;
+  padding: 10px 30px;
+  border: 1px dashed #44403b;
+  background-color: #292524;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 10px;
+}

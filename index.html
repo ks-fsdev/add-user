@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-stone-500 text-stone-100">
+    <div
+      class="container w-[30vw] m-auto border border-dashed border-stone-400 px-5 py-3 rounded-lg my-10 text-center bg-stone-700"
+    >
+      <h2 id="title" class="font-semibold text-2xl mb-3">Add enrolled users</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+        consequuntur accusamus facilis!
+      </p>
+      <div class="flex justify-center gap-5">
+        <input
+          type="text"
+          class="input w-100 outline-0 border-1 border-dashed border-stone-500 p-2 mt-3 rounded-lg focus:ring-3 focus:ring-stone-700 focus:border-solid focus:border-white"
+          placeholder="Enter Name"
+          id="name"
+        />
+        <input
+          type="email"
+          class="input w-100 outline-0 border-1 border-dashed border-stone-500 p-2 mt-3 rounded-lg focus:ring-3 focus:ring-stone-700 focus:border-solid focus:border-white"
+          placeholder="Enter Email"
+          id="email"
+        />
+      </div>
+      <div class="flex w-full justify-center mt-3">
+        <button
+          class="btn bg-stone-100 text-black font-semibold px-5 py-2 my-4 rounded-lg cursor-pointer active:scale-[0.99]"
+          id="btn"
+          onclick="addUser()"
+        >
+          Add new user
+        </button>
+        <div id="alert" class="alert"></div>
+      </div>
+    </div>
+
+    <div class="users-container" id="usersContainer">
+      <!-- <div class="user">
+        <p>Yash Goel</p>
+        <p>yash@gmail.com</p>
+      </div> -->
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
