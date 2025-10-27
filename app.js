@@ -1,9 +1,34 @@
+let users = [];
+let usersContainer = document.getElementById("usersContainer");
+
 const renderUser = () => {
-  let div = document.createElement(div);
+  usersContainer.innerHTML = "";
+  users.forEach((user) => {
+    let div = document.createElement("div");
+    let name = document.createElement("p");
+    let email = document.createElement("p");
+    div.classList.add("user");
+    name.innerText = user.name;
+    email.innerText = user.email;
+    usersContainer.appendChild(div);
+    div.append(name);
+    div.append(email);
+  });
 };
 
+const btn = document.getElementById("btn");
+
 const addUser = () => {
-  const btn = document.getElementById("btn");
-  const usersContainer = document.getElementById("usersContainer");
+  nameInput = document.getElementById("name");
+  emailInput = document.getElementById("email");
+
+  btn.addEventListener("click", () => {});
+  users.push({
+    name: nameInput.value,
+    email: email.value,
+  });
+
+  console.log(users);
+
   renderUser();
 };

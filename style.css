@@ -1,6 +1,5 @@
 .users-container {
   margin: 10px auto;
-  width: 30vw;
 }
 
 .user {
@@ -13,4 +12,15 @@
   align-items: center;
   gap: 25px;
   margin-bottom: 10px;
+  width: 60vw;
+}
+
+@media (max-width: 768px) {
+  .user {
+    width: 90vw;
+  }
+}
+
+.input {
+  box-sizing: border-box;
 }
