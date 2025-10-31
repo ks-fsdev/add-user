@@ -6,17 +6,17 @@ const NameInput = document.getElementById("name");
 const addUser = () => {
   NameValue = NameInput.value;
   emailValue = emailInput.value;
-  // checkInput(NameValue, emailValue);
-  // checkUser(emailValue);
 
   if (NameValue.trim() !== "" && emailValue.trim() !== "") {
     console.log("fields are filled");
     checkUser(emailValue);
+    resetFields();
   } else {
     console.log("fields are not filled");
     document.getElementById("alert").classList.remove("opacity-0");
     document.getElementById("alertMsg").innerHTML =
       "Please fill all the fields.";
+    resetFields();
 
     setTimeout(() => {
       document.getElementById("alert").classList.add("opacity-0");
@@ -66,4 +66,9 @@ const renderUser = () => {
     div.classList.add("user");
     name.classList.add("capitalize");
   });
+};
+
+const resetFields = () => {
+  NameInput.value = "";
+  emailInput.value = "";
 };
