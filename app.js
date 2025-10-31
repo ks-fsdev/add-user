@@ -8,11 +8,9 @@ const addUser = () => {
   emailValue = emailInput.value;
 
   if (NameValue.trim() !== "" && emailValue.trim() !== "") {
-    console.log("fields are filled");
     checkUser(emailValue);
     resetFields();
   } else {
-    console.log("fields are not filled");
     document.getElementById("alert").classList.remove("opacity-0");
     document.getElementById("alertMsg").innerHTML =
       "Please fill all the fields.";
@@ -28,8 +26,6 @@ const addUser = () => {
 
 const checkUser = (newEmail) => {
   if (users.some((email) => email.email == newEmail)) {
-    console.log("the email already exists");
-    console.log(users);
     document.getElementById("alert").classList.remove("opacity-0");
     document.getElementById("alertMail").innerText = emailValue;
 
@@ -41,8 +37,6 @@ const checkUser = (newEmail) => {
       name: NameValue,
       email: emailValue,
     });
-    console.log("email added");
-    console.log(users);
 
     renderUser();
   }
