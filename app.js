@@ -1,34 +1,69 @@
 let users = [];
-let usersContainer = document.getElementById("usersContainer");
+const usersContainer = document.getElementById("usersContainer");
+const emailInput = document.getElementById("email");
+const NameInput = document.getElementById("name");
+
+const addUser = () => {
+  NameValue = NameInput.value;
+  emailValue = emailInput.value;
+  // checkInput(NameValue, emailValue);
+  // checkUser(emailValue);
+
+  if (NameValue.trim() !== "" && emailValue.trim() !== "") {
+    console.log("fields are filled");
+    checkUser(emailValue);
+  } else {
+    console.log("fields are not filled");
+    document.getElementById("alert").classList.remove("opacity-0");
+    document.getElementById("alertMsg").innerHTML =
+      "Please fill all the fields.";
+
+    setTimeout(() => {
+      document.getElementById("alert").classList.add("opacity-0");
+      document.getElementById("alertMsg").innerHTML =
+        '<span id="alertMail" class="font-bold">userid</span> already registered.';
+    }, 2000);
+  }
+};
+
+const checkUser = (newEmail) => {
+  if (users.some((email) => email.email == newEmail)) {
+    console.log("the email already exists");
+    console.log(users);
+    document.getElementById("alert").classList.remove("opacity-0");
+    document.getElementById("alertMail").innerText = emailValue;
+
+    setTimeout(() => {
+      document.getElementById("alert").classList.add("opacity-0");
+    }, 2000);
+  } else {
+    users.push({
+      name: NameValue,
+      email: emailValue,
+    });
+    console.log("email added");
+    console.log(users);
+
+    renderUser();
+  }
+};
 
 const renderUser = () => {
   usersContainer.innerHTML = "";
+
   users.forEach((user) => {
     let div = document.createElement("div");
     let name = document.createElement("p");
     let email = document.createElement("p");
-    div.classList.add("user");
+
+    usersContainer.append(div);
+    div.appendChild(name);
+    div.appendChild(email);
+
     name.innerText = user.name;
     email.innerText = user.email;
-    usersContainer.appendChild(div);
-    div.append(name);
-    div.append(email);
+
+    div.classList.add("user");
+    name.classList.add("capitalize");
   });
-};
-
-const btn = document.getElementById("btn");
-
-const addUser = () => {
-  nameInput = document.getElementById("name");
-  emailInput = document.getElementById("email");
-
-  btn.addEventListener("click", () => {});
-  users.push({
-    name: nameInput.value,
-    email: email.value,
-  });
-
-  console.log(users);
-
-  renderUser();
 };
